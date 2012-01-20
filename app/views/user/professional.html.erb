@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>professional</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body><%= stylesheet_link_tag "styles" %>
+<hr />
+<%= render :partial => "header" %>
+<div id="session">
+  <h3>Welcome  <%=session[:name]%>|<%=link_to "Sign Out",signout_user_url%></h3>
+</div><br></br>
+<div id="colM" class="w770 brd"><br></br>
+  <center><h3>Your Professional information</h3>
+  <table>
+    <tr><th> Designation</th><td><%= @designation[:designation]  %></td></tr>
+    <tr><th> Description</th><td><p align="justify"><%= @professional[:description] %></p></td></tr>
+     <tr><th></th><td><%= link_to "Edit",edit_professional_user_path(:id=>session[:id]) %></td></tr>
+  </table></center>
+</div>
+</body>
+</html>

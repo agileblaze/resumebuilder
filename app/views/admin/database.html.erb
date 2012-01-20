@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Administrator</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body><%= stylesheet_link_tag "styles_admin" %>
+  <h3>Welcome  Admin | <%= link_to "Sign Out",signout_admin_url %></h3><br></br><br></br><%= link_to "Back To Home page",back_admin_url %>
+  <center><%= error_messages_for :database ,:framework ,:header_message => "Invalid Entry!",:message => "Data not saved.You'll need to fix the following fields:" %></center>
+   <center><h3>Configure Database</h3><br></br><br></br>
+   <%if  @count >0 %>
+    <table>
+      <tr>
+        <th>Database</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+      <tr>
+        <% @db.each do |a| %>
+        <td><%= a.database %></td>
+        <td><%= link_to "Edit",edit_db_admin_url(:id=>a.id) %></td>
+        <td><%= link_to "Delete",del_db_admin_url(:id=>a.id), :confirm => 'Are you sure?' %></td>
+        </tr>
+        <% end  %>
+    </table>
+<% end %>
+    <h4>Add new Operating System</h4>
+
+ <% form_tag(:action=>"add_db",:method=>"get") do  %>
+     Database: <%= text_field :database,:database  %>
+   <input type="submit" value="Add"/>
+  <% end  %>
+
+
+  </center>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Administrator</title>
+<%= javascript_include_tag "prototype" %>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body><%= stylesheet_link_tag "styles_admin" %>
+  <h3>Welcome To Administrator Page</h3><br></br><br></br>
+     <%#= link_to "View all Users",view_all_admin_url %><br></br><br></br>
+     <%#= link_to "Add Items", add_item_admin_url%>
+     <p id="add_lang"><%= link_to_function("Add item",
+      "Element.remove('add_lang'); Element.show('lang')")%></p>
+     <div id="lang" style="display:none;"> <% form_tag(:action=>"add_lang",:method=>"get") do  %>
+     Language:<%= text_field("languge","languge") %>
+    <input type="submit" value="Add"/>
+  <% end  %></div>
+</body>
+</html>

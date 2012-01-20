@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>25</title><%= javascript_include_tag "prototype" %>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body><%= stylesheet_link_tag "styles" %>
+<hr />
+<%= render :partial => "header" %>
+<div id="session">
+  <h3>Welcome  <%=session[:name]%>|<%=link_to "Sign Out",signout_user_url%></h3>
+</div><br></br><br></br><br></br>
+ <%#= javascript_include_tag "prototype" %>
+    <h2>Update Your Technical Proficiency </h2>
+    <center>
+  <% form_tag(:action=>"save_tech",:method=>"get") do  %> 
+  <table>
+    <tr><th> Language:</th><td><%= collection_select(:userlanguge, :languge_id,Languge.all,:id,:languge,{:selected=> @langselects.collect{|r|r.languge_id}},{:multiple => true,:name=>'userlanguge[languge_id][]'}) %></td></tr>
+    <tr><th> Framework:</th><td><%= collection_select(:userframework,:framework_id,Framework.all,:id,:framework,{:selected=>@fmselects.collect{|r|r.framework_id}},{:multiple => true,:name=>'userframework[framework_id][]'}) %></td></tr>
+    <tr><th>Operating S/M:</th><td>  <%=collection_select(:useroperatingsystem,:operating_system_id,OperatingSystem.all,:id,:name,{:selected=>@osselects.collect{|r|r.operating_system_id}},{:multiple=>'true',:name=>'useroperatingsystem[operating_system_id][]'})%></td></tr>
+    <tr><th>Database :</th><td><%= collection_select(:userdatabase,:database_id,Database.all,:id,:database,{:selected=>@dbselects.collect{|r|r.database_id}},{:multiple=>true,:name=>'userdatabase[database_id][]'}) %></td></tr>
+    <tr><th> Web Tools:</th><td>  <%= collection_select(:UserWebtool,:web_tool_id,WebTool.all,:id,:web_tool,{:selected=>@webtoolselects.collect{|r|r.web_tool_id}},{:multiple=>true,:name=>'userwebtool[web_tool_id][]'}) %></td></tr>
+    <%# if @othercount %>
+    <%# @tech_others.each do |a| %>
+    <%#*<tr><th><%= text_field :tech_other, :titlle, {:value=> a.titlle}%>
+    <%#*</th>%>
+    <%#*<td><%#= text_field :tech_other, :name, {:value=> a.name}%>
+    <%#*</td>%>
+    <%#*</tr>%>
+    <%# end  %>
+    <%# end %>
+    <tr><th></th><td> <input type="submit" value="save"/></td></tr>
+    <%#=  collection_multiple_select(:userlanguge, :languge_id,Languge.all,:id,:languge)%>
+  </table>
+  <% end  %>
+</center>
+</body>
+</html>
+

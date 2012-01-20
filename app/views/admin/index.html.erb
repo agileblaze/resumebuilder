@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Administrator</title>
+<%= javascript_include_tag "prototype" %>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body><%= stylesheet_link_tag "styles_admin"%>
+  <% if flash[:msg]!= nil %>
+    <%= flash[:msg]  %><br></br>
+  <% end %>
+  <h3>Welcome  Admin |<%= link_to "Sign Out",signout_admin_url %>
+  </h3><br></br><br></br>
+<%=flash[:notice] %><br></br>
+     <%= link_to "View all Users",view_all_admin_url %><br></br><br></br>
+     <%#= link_to "Add Items", add_item_admin_url%>
+     <%= link_to "Configure Data",config_admin_url %>
+</body>
+</html>

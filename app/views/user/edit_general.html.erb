@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Edit general</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body>
+<%= stylesheet_link_tag "styles" %>
+<%= stylesheet_link_tag "table" %>
+<%= stylesheet_link_tag "valid" %>
+<hr />
+<%= render :partial => "header" %>
+<div id="session">
+  <h3>Welcome  <%=session[:name]%>|<%=link_to "Sign Out",signout_user_url%></h3>
+</div>
+
+
+<br></br><br></br><br></br>
+<%= stylesheet_link_tag "table" %>
+<center><h3>UPDATE YOUR GENERAL INFERMATION</h3>
+<%#= error_messages_for :user  %>
+<% form_for(@user) do |f| %>
+     <%= f.error_messages :header_message => "Invalid Entry!",:message => "You'll need to fix the following fields:"  %>
+<table>
+  <tr><th><%= f.label("Name :") %> </th><td><%= f.text_field("fname") %> </td></tr>
+    <tr><th><%= f.label("Lastname :") %> </th><td><%= f.text_field("lname") %> </td></tr>
+  <tr><th> <%=f.label("Email ID :") %> </th> <td><%= f.text_field("email") %></td></tr>
+  <tr><th> <%=f.label("Phone No :") %> </th> <td><%= f.text_field("phone_no") %></td></tr>
+  <tr><th> <%=f.label("Addressline1 :") %></th> <td> <%= f.text_field("adressline1") %></td></tr>
+  <tr><th> <%=f.label("Addressline2 :") %></th> <td> <%= f.text_field("adressline2") %></td></tr>
+  <tr><th>  <%=f.label("Pin") %></th> <td> <%= f.text_field("pin") %></td></tr><br></br>
+  <tr> <th></th><td></td> </tr>
+  <tr> <th></th><td><%= f.submit 'Update' %></td> </tr>
+</table>
+<% end %></center>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>25</title>
+
+</head>
+<body><%= stylesheet_link_tag "styles" %>
+<hr />
+<%= render :partial => "header" %>
+<br></br>
+<div id="session">
+  <h3>Welcome  <%=session[:name]%>|<%=link_to "Sign Out",signout_user_url%></h3>
+</div><br></br>
+<%= link_to "Download Resume",download_resume_user_path(:id=>session[:id]) %>
+
+<center><h3>Upload Your Resume</h3
+
+    <% form_for @user_resume,:url =>"save_reume", :html => {:multipart => true} do |f| %>
+      <%= f.file_field :uploaded_data  %>
+    <input type="submit" value="Upload"/>
+<% end %></center>
+</body>
+</html>

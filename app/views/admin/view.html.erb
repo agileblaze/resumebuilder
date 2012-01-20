@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>Sample Resume</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="resume.css" media="all" />
+  </head>
+  <body>
+    <%= stylesheet_link_tag "resume" %>
+    <div id="doc2" class="yui-t7">
+      <div id="inner">     <%=link_to "Download PDF",pdf_admin_url(:id=>@id)%>
+        <div id="hd">
+          <div class="yui-gc">
+            <div id ="image" class="yui-u first">
+              <!imageeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee>
+              <%= image_tag "spk.png" %>
+            </div>
+            <div class="yui-u">
+              <div class="contact-info">
+              </div>
+              <!--// .contact-info -->
+            </div>
+          </div>
+          <!--// .yui-gc -->
+        </div>
+        <!--// hd -->
+        <div id="bd">
+          <div id="yui-main">
+            <div class="yui-b">
+              <div class="yui-gf">
+                <h2 id="name"><%=@user[:fname]%> <%=@user[:lname]%></h2><% if @dcount> 0 %>
+                  <h3><%=@professinoal.designation.designation %></h3><br></br>
+                  <p class="enlarge" align="justify">
+                    <h4><%= @professinoal.description %></h4></p><% end %>
+              </div>
+              <!--// .yui-gf -->
+              <% if  @pcount >0 %>
+                <div class="yui-gf">
+                  <p class="enlarge" align="justify"> <h3 id="underline"><u>Professional Summary</u></h3></p><br></br>
+                  <h3 id="star"><% @professionalsummary.each do |a|  %>
+                      <ul>
+                        <li><%=a.summary%></li>
+                      </ul>
+                    <% end  %></h3>
+                </div>
+              <% end %>
+              <!--// .yui-gf -->
+              <div class="yui-gf">
+                <% if @lcount> 0 ||@fcount> 0 || @oscount> 0 || @dbcount> 0 ||@toolcount> 0 || @other_count > 0 %>
+                <p class="enlarge" align="justify"> <h3 id="underline"><u>Technical Proficiencies</u></h3></p><br></br>
+
+                  <% if @lcount> 0 %>
+                    <% leng=@lcount %>
+                    <ul>
+                      <li>
+                        <h3><b>Language :</b> <%  @languge.each do |a| %><%=a.languge.languge%><%if leng >1%> ,<% end %> <% leng=leng-1 %><% end  %></h3>
+                      </li>
+                    </ul>
+                  <% end %>
+                  <% if @fcount> 0 %>
+                    <% leng=@fcount %>
+                    <ul>
+                      <li>
+                        <h3><b>Framework :</b><%  @framework.each do |a| %><%=a.framework.framework%><%if leng >1%> ,<% end %> <% leng=leng-1 %><% end  %></h3>
+                      </li>
+                    </ul>
+
+                  <% end %>
+                  <% if @oscount> 0 %>
+                    <% leng=@oscount %>
+                    <ul>
+                      <li>
+                        <h3> <b>Operating System :</b><% @os.each do |a| %><%=a.operating_system.name%><%if leng >1%> ,<% end %> <% leng=leng-1 %><% end  %></h3>
+
+                      </li>
+                    </ul>
+                  <% end %>
+                  <% if @dbcount> 0 %>
+                    <% leng=@dbcount %>
+                    <ul>
+                      <li>
+                        <h3> <b>RDBMS :</b><%  @db.each do |a| %><%=a.database.database%><%if leng >1%> ,<% end %> <% leng=leng-1 %><% end  %></h3>
+                      </li>
+                    </ul>
+                  <% end %>
+                  <% if @toolcount> 0 %>
+                    <% leng=@toolcount %>
+                    <ul>
+                      <li>
+                        <h3><b>Tool :</b><%  @tool.each do |a| %><%=a.web_tool.web_tool%><%if leng >1%> ,<% end %> <% leng=leng-1 %><% end  %></h3>
+                      </li>
+                    </ul>
+                  <% end %>
+                <% end %>
+                <% if  @other_count >0 %>
+                  <% @other.each do |a| %>
+                    <ul>
+                      <li>
+                        <h3> <b><%=a.titlle  %></b>:<%= a.name %></h3>
+                      </li>
+                    </ul>
+                  <% end %>
+                <%  end %>
+              </div>
+              <!--// .yui-gf-->
+              <% if   @cercount >0%>
+                <div class="yui-gf"><h3 id="underline"><u>Certificates/Technical Training </u></h3><br></br>
+                  <h3 id="star"><%  @cer.each do |a|  %>
+                      <ul>
+                        <li><%=h a.title %><% if  a.certification_no != '' %> (<%=h a.certification_no%>) <% end  %> </li>
+                      </ul>
+                    <% end  %></h3>
+                </div>
+              <% end  %>
+              <% if   @cccount >0%>
+                <div class="yui-gf"><h3 id="underline"><u>Core Competencies</u></h3><br></br>
+                  <h3 id="star"> <%  @core_comp.each do |a|  %>
+                      <ul>
+                        <li><%=h a.description%></li>
+                      </ul>
+                    <% end  %></h3>
+                </div>
+              <% end  %>
+              <% if @rrcount > 0 %>
+                <div class="yui-gf"><h3 id="underline"><u>Roles and Responsibilities</u></h3><br></br>
+                  <h3 id="star"><%  @role_res.each do |a|  %>
+                      <ul>
+                        <li><%=a.role%></li>
+                      </ul>
+                    <% end  %></h3>
+                </div>
+              <% end %>
+              <% if @rfcount>0 %>
+                <div class="yui-gf"><h3 id="underline"><u>Reference Work</u></h3><br></br>
+                  <p class="enlarge" align="justify"> </p>
+                  <% @ref_work.each do |a| %>
+                    <div> <h3 id="ref"><%= a.title  %></h3><br></br>
+                      <p id="o" align="justify" text-indent="50px" > <%= a.description %> </p></div><br></br>
+                  <% end %>
+                </div>
+              <% end %>
+              <% if @gcount>0 %>
+                <div class="yui-gf"><h3 id="underline"><u>Educational </u></h3><br></br><br></br>
+                  <%=  @graduation.name%>from <%=@graduation.university%>
+                <% end  %>
+                <% if @degree!=''%>
+                  <h3 id="underline" ><u>Educational Details</u></h3><br></br><br></br>
+                  <h3><% if @q_id!=1 %> <%=h  @degree %><% else %><%=  @qual %> <% end %> In <%=h  @decipline  %> From <%=h  @university %> </h3>
+                <% end %><br></br><br></br>
+                <p><h3>
+                     I hereby declare that the above mentioned particulars are true and correct to the best of my knowledge and belief
+                       <div class="dec">
+                    <h2 id="nam"><%=@user[:fname]%> <%=@user[:lname]%></h2>
+                  </div>
+                  </h3>
+                 
+                 
+                </p>
+              </div>
+              <div id="ft">
+                <%= image_tag "footer.jpg"%>
+              </div>
+              <!--// .yui-u -->
+            </div>
+            <!--// .yui-gf -->
+            <!--// .yui-gf -->
+          </div>
+          <!--// .yui-b -->
+        </div>
+        <!--// yui-main -->
+      </div>
+      <!--// bd -->
+      <!--// footer -->
+    </div>
+    <!-- // inner -->
+    </div>
+    <div class="out">
+      
+    </div>
+    <!--// doc -->
+  </body>
+</html>

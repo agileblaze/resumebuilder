@@ -1,0 +1,142 @@
+hr {
+	border:none;
+	border-top:1px solid #CCCCCC;
+	height:1px;
+	/*margin-bottom:25px;*/
+	}
+	
+#tabs {
+	float:left;
+	width:100%;
+	background:#FCF3F8;
+	font-size:84%;
+	line-height:normal;
+	border-bottom:1px solid #F4B7D6;
+	}
+
+#tabs ul {
+	margin:0;
+	padding:10px 10px 0 50px;
+	list-style:lower-alpha;
+	}
+
+#tabs li {
+	display:inline;
+	margin:2;
+	padding:0;
+	}
+
+#tabs a {
+	float:left;
+	background:url("tableft.gif") no-repeat left top;
+	margin:0;
+	padding:0 0 0 4px;
+	text-decoration:none;
+	}
+
+#tabs a span {
+	float:left;
+	display:block;
+	background:url("tabright.gif") no-repeat right top;
+	padding:5px 15px 4px 6px;
+	color:#C7377D;
+	}
+
+/* Commented Backslash Hack hides rule from IE5-Mac \*/
+#tabs a span {float:none;}
+
+/* End IE5-Mac hack */
+#tabs a:hover span {
+	color:#C7377D;
+	}
+
+#tabs a:hover {
+	background-position:0% -42px;
+	}
+
+#tabs a:hover span {
+	background-position:100% -42px;
+	}
+
+#colM {
+margin-left:50px;
+margin-right:500px;
+margin-top:20px;
+width:1350px;
+border-style:none;
+border-color:color;
+font-size:18px;
+}
+.cls {
+clear:both;
+border-bottom:1px solid #DBE8F8;
+}
+#new{
+border:1px solid white;
+align:justify
+}
+body{
+    background-color:#E0E0D4;
+}
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+  text-align: left;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+   text-align: left;
+}
+h3{
+font-family:"Myriad Pro",Helvetica,Arial,Verdana,sans-serif;
+font-size:20px;
+font-weight:normal;
+height:37px;
+line-height:37px;
+margin:0;
+padding:0 0 0 12px;
+}
+#outerDownBg {
+/*background-image: url("../images/wave3header.jpg");*/
+padding:22px 8px 17px;
+}
+table {
+	border-width: 1px 1px 1px 1px;
+	border-spacing: 20px;
+	border-style: outset outset outset outset;
+	border-color: red;
+	border-collapse:  separate;
+	background-color: white;
+}
+th{
+    text-align: left;
+   
+}
+#new{   border-width: 1px 1px 1px 1px;
+	padding: 1px 1px 1px 1px;
+	border-style: inset inset inset inset;
+	border-color: red;    
+}

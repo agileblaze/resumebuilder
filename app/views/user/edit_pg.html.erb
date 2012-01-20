@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Edit PG</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body><%= stylesheet_link_tag "styles" %>
+<hr />
+<%= render :partial => "header" %>
+<div id="session">
+  <h3>Welcome  <%=session[:name]%>|<%=link_to "Sign Out",signout_user_url%></h3>
+</div><br></br><br></br>
+<% if flash[:msg] %>
+<%= flash[:msg] %>
+<% end  %>
+<h3>Update your PG details</h3>
+ <% form_tag(:action=>"save_pg",:method=>"get") do  %>
+     <table>
+    <tr><th>Name :</th><td><%=collection_select :educational,:pg_id, Pg.all,:id,:name %></td></tr>
+    <tr><th>Discipline:</th><td><%=collection_select :educational,:discipline_id, Discipline.all,:id,:name %></td></tr>
+    <tr><th>From Date:</th><td><%= date_select :educational, :from %></td></tr>
+    <tr><th>To Date: </th><td><%= date_select :educational, :to %></td></tr>
+    <tr><th>University :</th><td><%=collection_select :educational,:university_id, University.all,:id,:name %></td></tr>
+    <tr><th>Institute :</th><td><%= text_field :educational, :institute %></td></tr>
+    <tr><th>Percentage :</th><td><%= text_field :educational, :percentage %></td></tr>
+    <tr><th></th><td> <input type="submit" value="save"/></td></tr>
+  </table>
+  <% end  %>
+    
+</body>
+</html>

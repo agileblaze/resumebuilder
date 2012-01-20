@@ -1,0 +1,32 @@
+/* 
+    Document   : admin_search
+    Created on : Oct 12, 2010, 12:32:55 PM
+    Author     : shamith
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+
+body{
+    background-color:#E0E0D4;
+}
+/*table {
+	border-width: 1px 1px 1px 1px;
+	border-spacing: 20px;
+	border-style: outset outset outset outset;
+	border-color: red;
+	border-collapse:  separate;
+	background-color: white;
+}
+th{
+    text-align: left;
+
+}*/

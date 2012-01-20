@@ -1,0 +1,82 @@
+<html>
+<head>
+<title>Sample Resume</title>
+<STYLE type="text/css">
+  P{ text-indent:50px}
+ </STYLE>
+
+</head>
+<body>
+  <%= stylesheet_link_tag "resume" , :media=>'print'%>
+ <div id="inner">
+<div id="hd">
+ <div class="yui-gc">
+  <div id ="image" class="yui-u first">
+<%= image_tag "spk.png" %></div>
+ </div>
+</div>
+   <div id="bd">
+      <div id="yui-main">
+        <div class="yui-b">
+    <div class="yui-gf">
+              <h2 id="name"><%=@user[:fname]%> <%=@user[:lname]%></h2>
+              <% if @dcount> 0 %>
+              <h3><%=  @professinoal.designation.designation %></h3>
+              <p class="enlarge" align="justify">
+              <%= @professinoal.description %></p><% end %>
+    </div>
+      </div>
+      </div>
+         <div class="yui-gf">
+           <% if @pcount>0 %>
+            <p class="enlarge" align="justify"> <h3 id="underline"><u>Professional Summary</u></h3></p><br></br>
+            <% @professionalsummary.each do |a|  %>
+            * <%=h a.summary%><br></br><br></br>
+            <% end  %>
+            <% end  %>
+
+          </div>
+     <% if  @lcount> 0 || @fcount> 0||@oscount> 0||@dbcount> 0|| @toolcount> 0 %>
+  <div class="yui-gf">
+            <p class="enlarge" align="justify"> <h3 id="underline"><u>Technical Proficiencies</u></h3></p>
+            <% if @lcount> 0 %>
+             Language:<%  @languge.each do |a| %><%=h  a.languge.languge%><% end  %>
+            <% end %><br></br>
+            <% if @fcount> 0 %>
+             Framework: <%  @framework.each do |a| %><%=h a.framework.framework%><% end  %>
+            <% end %><br></br>
+            <% if @oscount> 0 %>
+            Operating System:<%  @os.each do |a| %><%=h a.operating_system.name%><% end  %>
+            <% end %><br></br>
+             <% if @dbcount> 0 %>
+            RDBMS :<%  @db.each do |a| %><%=h a.database.database%>,<% end  %>
+            <% end %><br></br>
+            <% if @toolcount> 0 %>
+            Tool :<%  @tool.each do |a| %><%=h  a.web_tool.web_tool%> <% end  %>
+            <% end %><br></br>
+          </div>
+     <% end %>
+       <% if @rrcount>0 %>
+       <div class="yui-gf"><h3 id="underline"><u>Roles and Responsibilities</u></h3><br></br>
+                     <%  @role_res.each do |a|  %>
+            * <%=h a.role%><br></br>
+            <% end  %>
+          </div>
+     <% end %>
+     <% if @rfcount>0 %>
+     <div class="yui-gf"><h3 id="underline"><u>Reference Work </u></h3>
+              <p class="enlarge" align="justify"> </p>
+              <% @ref_work.each do |a| %>
+              <div> <h5 id="ref_title"><%=h a.title  %></h5>
+                <p align="justify" ><%=h a.description %></p></div>
+             <% end %>
+          </div>
+     <% end %>
+          <div id="ft">
+            <%= image_tag "spkfooter.png" ,:size => "80x10"%>
+         </div>
+   </div>
+
+ </div>
+</body>
+</html>

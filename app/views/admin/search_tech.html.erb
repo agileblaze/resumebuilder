@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Administrator</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  </head>
+  <body>
+    <%= stylesheet_link_tag "admin_search" %>
+    <h3>Welcome  Admin |<%= link_to "Sign Out",signout_admin_url %></h3><br></br><br></br><%= link_to "Back To Home page",back_admin_url %><br></br><br></br>
+    <%= link_to "Search By Name",search_admin_url %><br></br><br></br>
+    <%= link_to "Search By Keywords",search_tech_admin_url  %>
+    <center><h3>Search Users by Keywords</h3><br></br><br></br>
+      <table>
+        <% form_tag(:action=>"search_techa",:method=>"get") do  %>
+          <tr>
+            <th>Key Word :</th><td<%= text_field_tag :name %></td>
+          </tr>
+          <tr></tr>
+          <tr></tr>
+          <tr></tr>
+          <tr>
+            <th></th><td><input type="submit" value="Search"/> </td>
+          </tr>
+        <% end %>
+      </table>
+    </center>
+  </body>
+</html>

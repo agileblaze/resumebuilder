@@ -1,0 +1,30 @@
+/* 
+    Document   : valid
+    Created on : Sep 17, 2010, 7:09:04 AM
+    Author     : shamith
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+
+.code {
+background-color:brown;
+border:1px inset #006666;
+color:PapayaWhip;
+font-family:"Courier New",Courier,mono;
+font-size:14px;
+height:123px;
+margin:0;
+overflow:auto;
+padding:6px;
+text-align:left;
+width:550px;
+}

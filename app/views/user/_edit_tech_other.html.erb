@@ -1,0 +1,7 @@
+<% form_tag(:action=>"update_tech_other",:method=>"get",:id=>@id) do  %>
+   <table>
+     <tr><th>Edit Data</th><td></td> </tr>
+    <tr><th><%= text_field :tech_other, :titlle %> </th><td><%= text_field :tech_other, :name %> </td> </tr>
+    <tr><th></th><td> <input type="submit" value="save"/></td></tr>
+  </table>
+<% end %>

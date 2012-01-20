@@ -1,0 +1,183 @@
+/*
+---------------------------------------------------------------------------------
+	STRIPPED DOWN RESUME TEMPLATE
+    html resume
+
+    v0.9: 5/28/09
+
+    design and code by: thingsthatarebrown.com 
+                        (matt brown)
+---------------------------------------------------------------------------------
+*/
+#bd{
+     /* font:bold 12px Verdana,serif; */
+}
+.msg { padding: 10px;
+      background: #222;
+      position: relative; }
+.msg h1 { 
+    color: #fff;
+}
+.msg a { margin-left: 20px; 
+        background: #408814;
+        color: white; padding: 4px 8px;
+        text-decoration: none;
+}
+.msg a:hover { background: #266400;
+}
+
+/* //-- yui-grids style overrides -- */
+body {
+    font-family: Verdana;
+    color: #444;
+}
+
+#inner { padding: 10px 80px;
+         margin: 80px auto;
+         border-width: 8px 0 2px 0;
+}
+.yui-gf { margin-bottom: 2em;
+         padding-bottom: 2em;
+         text-align: justify;
+        /* border-bottom: 1px solid #ccc;*/
+
+}
+
+/* //-- header, body, footer -- */
+#hd { margin: 2.5em 0 3em 0;
+      padding-bottom: 1.5em;
+      border-bottom: 1px solid #ccc }
+#hd h2 { text-transform: uppercase;
+     letter-spacing: 2px; }
+#bd, #ft { margin-bottom: 2em;
+}
+
+/* //-- footer -- */
+  #ft { padding: 1em 0 5em 0;
+        /* border-top: 1px solid #ccc; */
+        font-size: 92%;
+        text-align: center;
+        width:auto;
+        display:  block;
+        float:left;
+        width:whatever-px;
+        padding:10px;
+
+
+
+  }
+#ft p { margin-bottom: 0;
+    text-align: center;
+}
+
+/* //-- core typography and style -- */
+#hd h1 { font-size: 48px;
+     text-transform: uppercase;
+     letter-spacing: 3px; }
+
+h3, h4 { font-size: 122%;
+         font-size: 9;
+         font-style: Verdana;
+}
+h1, h2,{ color: #333;
+                 font-size: 12px;
+                 font-weight: bold;
+                 font-family:Verdana;
+}
+p { font-size: 100%; line-height: 18px; padding-right: 3em; }
+a { color: #990003 }
+a:hover { text-decoration: none; }
+strong { font-weight: bold; }
+/*li { line-height: 24px; border-bottom: 1px solid #ccc; }*/
+p.enlarge { font-size: 9;
+          padding-right: -1.0em;
+          line-height: 24px;
+          
+          text-align: justify;
+}
+p.enlarge span { color: #000;
+         text-align: justify;
+}
+.contact-info { margin-top: 7px; }
+.first h2 { font-style: italic; }
+.last { border-bottom: 0 }
+
+
+/* //-- section styles -- */
+
+a#pdf { display: block; float: left; background: #666; color: white; padding: 6px 50px 6px 12px; margin-bottom: 6px; text-decoration: none;  }
+a#pdf:hover { background: #222; }
+
+.job { position: relative; margin-bottom: 1em; padding-bottom: 1em; border-bottom: 1px solid #ccc; }
+.job h4 { position: absolute; top: 0.35em; right: 0 }
+.job p { margin: 0.75em 0 3em 0; }
+
+.last { border: none; }
+.skills-list {  }
+/*.skills-list ul { margin: 0; }
+.skills-list li { margin: 3px 0; padding: 3px 0; }
+.skills-list li span { font-size: 152%; display: block; margin-bottom: -2px; padding: 0 }
+.talent { width: 32%; float: left }
+.talent h2 { margin-bottom: 6px; }*/
+
+#srt-ttab { margin-bottom: 100px; text-align: center;  }
+#srt-ttab img.last { margin-top: 20px }
+
+/* --// override to force 1/8th width grids -- */
+.yui-gf .yui-u{width:80.2%;}
+.yui-gf div.first{width:12.3%;}
+#image{
+    vspace ="5";
+    hspace="10"
+}
+#underline{
+         font-size: 11pt;
+         font-weight: bold;
+
+}
+#name{
+         font-size: 12pt;
+         font-weight: bold;
+}
+/*#star{
+         font-size: 11pt;
+         font-style: Verdana;
+
+}*/
+#ref_title{
+         font-size: 12pt;
+         font-style: Verdana;
+         font-weight:bold;
+
+}
+p{
+      text-indent:50px;
+      font-size: 9;
+      font-size: 122%;
+}
+li {
+list-style-image:none;
+list-style-position:outside;
+list-style-type:inherit;
+}
+.yui-gf1 { margin-bottom  : 2em;
+         padding-bottom   : 2em;
+         text-align       : justify;
+         padding-left     :3em;
+        /* border-bottom: 1px solid #ccc;*/
+}
+#dec{
+    text-align       : justify;
+}
+#nam{
+     text-align       :right;
+}
+#ref{
+         /*      font-style: Verdana; */
+         font-weight:bold;
+         font-size: 10pt;
+}
+.enlarge{
+    font-size: 9pt;
+
+}

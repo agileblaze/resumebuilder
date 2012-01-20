@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>General</title>
+  </head>
+  <body><%= stylesheet_link_tag "styles" %>
+    <hr />
+    <%= render :partial => "header" %>
+    <br></br>
+    <div id="session">
+      <h3>Welcome  <%=session[:name]%>|<%=link_to "Sign Out",signout_user_url%></h3>
+    </div><br></br>
+<%#=@current_action %>
+<%#= controller_name %>
+<%#=session[:p]%>
+<%# if @user.phone_no !=nil %>
+<%#= link_to "Change Your Password",change_pwd_user_path %><%# end  %>
+    <center><h3>Your General Information</h3>
+      <div id="colM" class="w770 brd"><br></br>
+        <table>
+          <tr><th>Name :</th><td><%= @user[:fname]  %>&nbsp;<%= @user[:lname]  %></td></tr>
+          <tr><th>Email ID:</th><td><%= @user[:email] %></td></tr>
+          <tr><th>Phone No:</th><td><%= @user[:phone_no] %></td></tr>
+          <tr><th>Address:</th><td><%= @user[:adressline1] %><%= @user[:adressline2] %></td></tr>
+          <tr><th> pin :</th><td><%= @user[:pin] %></td></tr>
+          <tr id="cap"><th></th><td><%= link_to "Edit",edit_general_user_path(:id=>session[:id]) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "Upload Your Personal Reumme",upload_resume_user_path %></td> </tr>
+        </table>
+      </div></center>
+  </body>
+</html>

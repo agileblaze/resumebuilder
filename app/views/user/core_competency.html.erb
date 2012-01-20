@@ -1,0 +1,38 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+ <title>25</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <%= javascript_include_tag "prototype" %>
+ </head>
+ <body><%= stylesheet_link_tag "styles" %>
+ <hr />
+ <%= render :partial => "header" %>
+ <div id="session">
+  <h3>Welcome  <%=session[:name]%>|<%=link_to "Sign Out",signout_user_url%></h3>
+ </div><br></br><br></br><br></br>
+ <%= error_messages_for :core_competency, :header_message => "Invalid Entry!",:message => "Data not Saved. You'll need to fix the following fields:" %>
+ <div id="colM" class="w770 brd"><br></br>
+  <% if  @count > 0%>
+  <h4>Your core competencies are</h4>
+  <% @core.each do |a|%>
+  <ul>
+    <li>
+       <%= a.description %>&nbsp;&nbsp;&nbsp;<%= link_to "Delete",delete_core_competency_user_url(:id=>a.id),:confirm => 'Are you sure?' %>
+    </li>
+  </ul>
+  <% end %>
+  <% end %>
+ <p id="add_summary"><%= link_to_function("Add Your core competencies",
+ "Element.remove('add_summary'); Element.show('summary')")%></p>
+ <div id="summary" style="display:none;">
+ <% form_tag(:action=>"save_core_competency",:method=>"get") do  %>
+ <div>Your core competencies:</div><%= text_area("core_competency","description", :size=>20) %>
+ &nbsp;&nbsp;&nbsp;Priority :<%= text_field("core_competency","priority") %>
+ <input type="submit" value="save"/>
+ <% end  %>
+ </div>
+ </div>
+ </body>
+ </html>
+ <%#= link_to 'Destroy', , ,  %>

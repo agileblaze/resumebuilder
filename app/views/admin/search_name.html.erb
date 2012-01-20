@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Administrator</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body><%= stylesheet_link_tag "styles_admin" %>
+   <h3>Welcome  Admin | <%= link_to "Sign Out",signout_admin_url %></h3><br></br><br></br><%= link_to "Back To Home page",back_admin_url %><br></br><br></br>
+<%= link_to "Search By Name",search_admin_url %><br></br><br></br>
+<%= link_to "Search By Keywords",search_tech_admin_url  %>
+<% if @data_len >0 %>
+  <center> <h3>View all users</h3><br></br><br></br>
+    <table border="1">
+      <tr><th>Name</th>
+          <th>Email ID</th>
+          <th>Phone No</th>
+          <th>View</th>
+          <th>Personal Resume</th>
+
+      </tr>
+      <% @data.each do |a| %>
+      <tr><td><%= a.fname %>&nbsp;&nbsp;<%= a.lname %></td>
+          <td><%= a.email %></td>
+          <td><%= a.phone_no %></td>
+          <td><%=link_to "View",view_admin_url(:id=>a.id)%></td>
+          <td><%=link_to "Download",download_resume_admin_url(:id=>a.id)%></td>
+          <%#*<td>%>
+          <%#=link_to "Delete",delete_user_admin_url(:id=>a.id),:confirm => 'Are you sure?' %>
+          <%#*</td>%>
+      </tr>
+      <% end  %>
+    </table><br></br>
+     <%= will_paginate(@data) %>
+
+<% else %>
+    <center>
+      <%= "No Match Found...................." %>
+    </center>
+
+     </center>
+<% end %>
+</body>
+</html>

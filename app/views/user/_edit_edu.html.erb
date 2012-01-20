@@ -1,0 +1,18 @@
+   <div id="table" >
+        <% form_tag(:action=>"update_edu",:method=>"get",:msg=> 'new',:id=>@id) do  %>
+         <%= error_messages_for :educational %>
+          <table>
+            <tr><th><u> Update Your Educational Details</u></th><td></td> </tr>
+            <tr><th>Qualification : </th><td><%=collection_select :educational,:qualification_name_id, QualificationName.all,:id,:name %></td> </tr>
+            <tr><th>Name of Degree</th><td> <%=collection_select :educational,:degree_name_id,DegreeName.all,:id,:name %></td> </tr>
+            <tr><th>Discipline</th><td><%=collection_select :educational,:discipline_id, Discipline.all,:id,:name %></td> </tr>
+            <tr><th>Institution</th><td><%= text_field :educational, :institute %></td> </tr>
+            <tr><th> University :</th><td><%=collection_select :educational,:university_id, University.all,:id,:name %></td></tr>
+            <tr><th>Duration :</th><td><%= date_select :educational, :from,  {:start_year=>1980,:discard_day=>true,:discard_month=>true } %> To <%= date_select :educational, :to , {:start_year=>1980,:discard_day=>true,:discard_month=>true}%></td> </tr>
+            <tr><th>Percentage :</th><td><%= text_field :educational, :percentage %> </td> </tr>
+            <tr><th>Scholarships</th><td><%= text_field :educational, :schoolarship %></td> </tr>
+            <%#=  select_year(:educational, :from, :start_year => 1992, :end_year => 2007) %>
+            <tr><th> </th><td> <input type="submit" value="save"/></td> </tr>
+          </table>
+        <% end  %>
+      </div>

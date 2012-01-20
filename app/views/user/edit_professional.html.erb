@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Edit professional</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  </head>
+  <body><%= stylesheet_link_tag "styles" %>
+    <hr />
+    <%= render :partial => "header" %>
+    <div id="session">
+      <h3>Welcome  <%=session[:name]%>|<%=link_to "Sign Out",signout_user_url%></h3>
+    </div><br></br><br></br><br></br><center>
+      <h2>Update Your Professional Data </h2>
+      <%= error_messages_for :professional %>
+      <% form_tag(:action=>'update_professional',:method=>"get") do %>
+      <table>
+         <tr><th> Designation :</th><td><%= collection_select(:professional, :designation_id,Designation.all,:id,:designation) %></td></tr>
+         <tr><th> Description :</th><td><%= text_area("professional","description") %></td></tr>
+         <tr><th></th><td><input type="submit" value="Update" /></td></tr>
+      </table>
+      <% end %></center>
+  </body>
+</html>

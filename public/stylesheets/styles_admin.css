@@ -1,0 +1,81 @@
+/* 
+    Document   : styles_admin
+    Created on : Sep 4, 2010, 11:53:02 AM
+    Author     : shamith
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+body{
+    background-color:#E0E0D4;
+}
+h3{
+    font: medium
+    margin:0;
+    font-size: 20px;
+    font-weight: bold;
+    display: inline;
+}
+table {
+	border-width: 1px 1px 1px 1px;
+	border-spacing: 2px;
+	border-style: outset outset outset outset;
+	border-color: red;
+	border-collapse: separate;
+	background-color: white;
+}
+th {
+	border-width: 1px 1px 1px 1px;
+	padding: 1px 1px 1px 1px;
+	border-style: inset inset inset inset;
+	border-color: red;
+
+	
+}
+td {
+	border-width: 1px 1px 1px 1px;
+	padding: 1px 1px 1px 1px;
+	border-style: inset inset inset inset;
+	border-color: red;
+	
+}
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+  text-align: left;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+   text-align: left;
+}
+
+#aa{
+    background-color: red;
+}

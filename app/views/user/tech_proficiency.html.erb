@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>25</title><%= javascript_include_tag "prototype" %>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  </head>
+  <body><%= stylesheet_link_tag "styles" %>
+    <hr />
+    <%= render :partial => "header" %>
+    <h3>Welcome  <%=session[:name]%><%=link_to "Sign Out",signout_user_url%></h3>
+    <br></br><center>
+      <%= error_messages_for :tech_other , :header_message => "Invalid Entry!",:message => "Data not Saved.You'll need to fix the following fields:"%>
+    </center><center><div id="colM" class="w770 brd"><br></br>
+        <table>
+          <tr><th>Language/Scripting Language </th><td> :<%  @userlanguge.each do |a|%><%= a.languge.languge %>&nbsp;&nbsp;<% end %></td></tr>
+          <tr><th>Frameworks  </th><td>:<% @userframework.each do |a| %><%= a.framework.framework %>&nbsp;&nbsp;<% end  %></td></tr>
+          <tr><th> Operating Systems </th><td>: <% @useros.each do |a| %><%=  a.operating_system.name %>&nbsp;&nbsp;<% end  %></td></tr>
+          <tr><th> Web tools </th><td>:<% @webtool.each do |a| %><%= a.web_tool.web_tool %> &nbsp;&nbsp;<% end  %></td></tr>
+          <tr><th> Databases </th><td> :<% @db.each do |a| %><%= a.database.database %>&nbsp;&nbsp;<% end %></td></tr>
+          <tr><th></th><td align="left"><%=link_to "Edit",edit_tech_proficiency_user_path %></td></tr>
+          <% if @othercount > 0 %>
+            <tr><th><div class="cls btmln">
+                  <%=image_tag "spacer.gif"%>
+                </div></th></tr>
+            <tr><th><u>Additional technical proficiencies </u></th><td></td> </tr>
+            <% @other.each do |other| %>
+              <tr><th><%=other.titlle %> </th> <td>:<%=  other.name   %> <%= link_to_remote("Edit",:update=>"edit",:url=>{:action=>"edit_tech_other", :id=>other.id },:position=>"") %>  &nbsp;&nbsp;<%=link_to "Delete",delete_tech_other_user_url(:id=>other.id),:confirm => 'Are you sure?' %> </td> </tr>
+            <% end  %>
+          <% end %>
+          <tr><td>     <p id="pg">
+                <%= link_to_function("Add More","Element.remove('pg'); Element.show('table')")%>
+              </p>
+            </td><th></th> </tr>
+        </table><br></br><br></br>
+        <div id="edit">
+        </div>
+        <div id="table" style="display:none;">
+          <% form_tag(:action=>"save_other_tech",:method=>"get",:msg=> 'new') do  %>
+            <table>
+              <tr><th><u> Add Your Technical Details</u></th><td></td> </tr>
+              <tr><th>Tittle :</th><td><%= text_field :tech_other, :titlle%> </td> </tr>
+              <tr><th>Description :</th><td><%= text_field :tech_other, :name %> </td> </tr>
+              <tr><th> </th><td> <input type="submit" value="save"/></td> </tr>
+            </table>
+          <% end  %>
+        </div>
+      </div></center>
+  </body>
+</html>

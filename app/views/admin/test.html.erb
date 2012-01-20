@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Administrator</title>
+<%= javascript_include_tag "prototype" %>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body><%= stylesheet_link_tag "styles_admin" %>
+  <% if flash[:msg]!= nil %>
+    <%= flash[:msg]  %><br></br>
+  <% end %>
+  <h3>Welcome To Administrator Page</h3><br></br><br></br>
+     <%= link_to "View all Users",view_all_admin_url %><br></br><br></br>
+     <%#= link_to "Add Items", add_item_admin_url%>
+     <p id="add"><%= link_to_function("Add items",
+      "Element.remove('add'); Element.show('add_all')")%></p>
+
+     <div id="add_all" style="display:none;">
+      <p id="add_lang" ><%= link_to_function("Add Languge",
+      "Element.remove('add_lang'); Element.show('lang')")%></p>
+     <p id="add_fm" ><%= link_to_function("Add FrameWork",
+      "Element.remove('add_fm'); Element.show('fm')")%></p>
+       <p id="add_os" ><%= link_to_function("Add operating System",
+      "Element.remove('add_os'); Element.show('os')")%></p>
+       <p id="add_db" ><%= link_to_function("Add Database",
+      "Element.remove('add_db'); Element.show('db')")%></p>
+       <p id="add_des" ><%= link_to_function("Add Designation",
+      "Element.remove('add_des'); Element.show('des')")%></p>
+       <p id="add_dec" ><%= link_to_function("Add Discipline",
+      "Element.remove('add_dec'); Element.show('dec')")%></p>
+       <p id="add_g" ><%= link_to_function("Add graduation",
+      "Element.remove('add_g'); Element.show('g')")%></p>
+        <p id="add_pg" ><%= link_to_function("Add PG",
+      "Element.remove('add_pg'); Element.show('pg')")%></p>
+       <p id="add_u" ><%= link_to_function("Add University",
+      "Element.remove('add_u'); Element.show('u')")%></p>
+     </div>
+     <div id="lang" style="display:none;"> <% form_tag(:action=>"add_lang",:method=>"get") do  %>
+     Language:<%= text_field("languge","languge") %>
+     <input type="submit" value="Add"/>
+     <% end  %><br></br></div>
+     <div id="fm" style="display:none;"> <% form_tag(:action=>"add_fm",:method=>"get") do  %>
+     Frame Work:<%= text_field("framework","framework") %>
+    <input type="submit" value="Add"/>
+    <% end  %><br></br></div>
+      <div id="os" style="display:none;"> <% form_tag(:action=>"add_os",:method=>"get") do  %>
+     operating system:<%= text_field("operatingsystem","name") %>
+     <input type="submit" value="Add"/>
+     <% end  %><br></br></div>
+     <div id="db" style="display:none;"> <% form_tag(:action=>"add_db",:method=>"get") do  %>
+     Data Base:<%= text_field("database","database") %>
+    <input type="submit" value="Add"/>
+    <% end  %><br></br></div>
+     <div id="des" style="display:none;"> <% form_tag(:action=>"add_des",:method=>"get") do  %>
+     Designation:<%= text_field("designation","designation") %>
+    <input type="submit" value="Add"/>
+    <% end  %><br></br></div>
+     <div id="dec" style="display:none;"> <% form_tag(:action=>"add_dec",:method=>"get") do  %>
+     Discipline:<%= text_field("discipline","name") %>
+    <input type="submit" value="Add"/>
+    <% end  %><br></br></div>
+
+    <div id="g" style="display:none;"> <% form_tag(:action=>"add_g",:method=>"get") do  %>
+     Graduation:<%= text_field("graduation","name") %>
+    <input type="submit" value="Add"/>
+    <% end  %><br></br></div>
+
+     <div id="pg" style="display:none;"> <% form_tag(:action=>"add_pg",:method=>"get") do  %>
+     Post Graduation:<%= text_field("pg","name") %>
+    <input type="submit" value="Add"/>
+    <% end  %><br></br></div>
+
+     <div id="u" style="display:none;"> <% form_tag(:action=>"add_u",:method=>"get") do  %>
+     University:<%= text_field("university","name") %>
+    <input type="submit" value="Add"/>
+    <% end  %><br></br></div>
+
+
+
+
+     <p id="del"><%= link_to_function("Delete items",
+      "Element.remove('del'); Element.show('del_all')")%></p>
+
+     <div id="del_all" style="display:none;">
+      <p id="del_lang" ><%= link_to_function("Delete Languge",
+      "Element.remove('del_lang'); Element.show('langd')")%></p>
+     <p id="del_fm" ><%= link_to_function("Delete FrameWork",
+      "Element.remove('del_fm'); Element.show('fmd')")%></p>
+       <p id="del_os" ><%= link_to_function("Delete operating System",
+      "Element.remove('del_os'); Element.show('osd')")%></p>
+       <p id="del_db" ><%= link_to_function("Delete Database",
+      "Element.remove('del_db'); Element.show('dbd')")%></p>
+       <p id="del_des" ><%= link_to_function("Delete Designation",
+      "Element.remove('del_des'); Element.show('desd')")%></p>
+       <p id="del_dec" ><%= link_to_function("Delete Discipline",
+      "Element.remove('del_dec'); Element.show('decd')")%></p>
+       <p id="del_g" ><%= link_to_function("Delete graduation",
+      "Element.remove('del_g'); Element.show('gd')")%></p>
+        <p id="del_pg" ><%= link_to_function("Delete PG",
+      "Element.remove('del_pg'); Element.show('pgd')")%></p>
+       <p id="del_u" ><%= link_to_function("Delete University",
+      "Element.remove('del_u'); Element.show('ud')")%></p>
+     </div>
+     <div id="langd" style="display:none;">
+       <h3>Delete Languages</h3><br></br>
+       <% @lang=Languge.find(:all,:conditions=>["languge!='select'"]) %>
+       <% @lang.each do |a| %>
+         <%=a.languge %>&nbsp;&nbsp;&nbsp;<%= link_to "Delete",del_lang_admin_url(:id=>a.id), :confirm => 'Are you sure?' %><br></br>
+
+       <% end %>
+     </div>
+    <div id="fmd" style="display:none;">
+       <h3>Delete Framework</h3><br></br>
+       <% @lang=Framework.find(:all,:conditions=>["framework!='select'"]) %>
+       <% @lang.each do |a| %>
+         <%=a.framework %>&nbsp;&nbsp;&nbsp;<%= link_to "Delete",del_fm_admin_url(:id=>a.id), :confirm => 'Are you sure?' %><br></br>
+
+       <% end %>
+     </div>
+ <div id="osd" style="display:none;">
+       <h3>Delete Operating System</h3><br></br>
+       <% @lang=OperatingSystem.find(:all,:conditions=>["name!='select'"]) %>
+       <% @lang.each do |a| %>
+         <%=a.name %>&nbsp;&nbsp;&nbsp;<%= link_to "Delete",del_os_admin_url(:id=>a.id), :confirm => 'Are you sure?' %><br></br>
+
+       <% end %>
+     </div>
+
+
+
+<div id="dbd" style="display:none;">
+       <h3>Delete Database</h3><br></br>
+       <% @lang=Database.find(:all) %>
+       <% @lang.each do |a| %>
+       <%=a.database %>&nbsp;&nbsp;&nbsp;<%= link_to "Delete",del_db_admin_url(:id=>a.id), :confirm => 'Are you sure?' %><br></br>
+       <% end %>
+     </div>
+
+<div id="desd" style="display:none;">
+       <h3>Delete Designation</h3><br></br>
+       <% @lang=Designation .find(:all,:conditions=>["designation!='select'"]) %>
+       <% @lang.each do |a| %>
+       <%=a.designation %>&nbsp;&nbsp;&nbsp;<%= link_to "Delete",del_des_admin_url(:id=>a.id), :confirm => 'Are you sure?' %><br></br>
+       <% end %>
+     </div>
+
+
+     <div id="decd" style="display:none;">
+       <h3>Delete Discipline</h3><br></br>
+       <% @lang=Discipline .find(:all,:conditions=>["name!='select'"]) %>
+       <% @lang.each do |a| %>
+       <%=a.name %>&nbsp;&nbsp;&nbsp;<%= link_to "Delete",del_dec_admin_url(:id=>a.id), :confirm => 'Are you sure?' %><br></br>
+       <% end %>
+     </div>
+
+
+     <div id="gd" style="display:none;">
+       <h3>Delete Graduation</h3><br></br>
+       <% @lang=Graduation .find(:all,:conditions=>["name!='select'"]) %>
+       <% @lang.each do |a| %>
+         <%=a.name %>&nbsp;&nbsp;&nbsp;<%= link_to "Delete",del_g_admin_url(:id=>a.id), :confirm => 'Are you sure?' %><br></br>
+
+       <% end %>
+     </div>
+ <div id="pgd" style="display:none;">
+       <h3>Delete Post Graduation</h3><br></br>
+       <% @lang=Pg.find(:all,:conditions=>["name!='select'"]) %>
+       <% @lang.each do |a| %>
+         <%=a.name %>&nbsp;&nbsp;&nbsp;<%= link_to "Delete",del_pg_admin_url(:id=>a.id), :confirm => 'Are you sure?' %><br></br>
+
+       <% end %>
+     </div>
+
+     <div id="ud" style="display:none;">
+       <h3>Delete University</h3><br></br>
+       <% @lang= University.find(:all,:conditions=>["name!='select'"]) %>
+       <% @lang.each do |a| %>
+         <%=a.name %>&nbsp;&nbsp;&nbsp;<%= link_to "Delete",del_u_admin_url(:id=>a.id), :confirm => 'Are you sure?' %><br></br>
+
+       <% end %>
+     </div>
+
+</body>
+</html>

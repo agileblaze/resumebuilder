@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>25</title>
+<%= javascript_include_tag "prototype" %>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body><%= stylesheet_link_tag "styles" %>
+<hr />
+<%= render :partial => "header" %>
+<div id="session">
+  <h3>Welcome  <%=session[:name]%>|<%=link_to "Sign Out",signout_user_url%></h3>
+</div><br></br>
+<br></br>
+<%= error_messages_for :educational,:header_message => "Invalid Entry!",:message => "Data not saved.You'll need to fix the following fields:"  %>
+<% if flash[:msg] %>
+<%= flash[:msg] %>
+<% end  %>
+<p id="sslc">
+  <%#= link_to_function("Enter Details of SSlC","Element.remove('sslc'); Element.show('sslcdata')")%>
+</p>
+<div id="sslcdata" style="display:none;">
+  <h3>Enter SSLC Details</h3>
+    <% form_tag(:action=>"save_sslc",:method=>"get") do  %>
+  <table>
+      <tr><th> From Date:</th><td> <%= date_select :educational, :from %></td> </tr>
+      <tr><th>To Date:</th><td><%= date_select :educational, :to %></td> </tr>
+      <tr><th>Board :</th><td>  <%= text_field :educational, :board %></td> </tr>
+      <tr><th> Institute :</th><td><%= text_field :educational, :institute %></td> </tr>
+      <tr><th> Percentage :</th><td><%= text_field :educational, :percentage %></td> </tr>
+      <tr><th></th><td><input type="submit" value="save"/></td> </tr>
+  </table>
+  <% end  %>
+</div>
+<p id="plus2">
+  <%#= link_to_function("Enter Details of PLUS-2","Element.remove('plus2'); Element.show('plus2data')")%>
+</p>
+<div id="plus2data" style="display:none;">
+  <h3>Enter PLUS-TWO Details</h3>
+   <% form_tag(:action=>"save_plus2",:method=>"get") do  %>
+  <table>
+    <tr><th> From Date:</th><td><%= date_select :educational, :from %></td></tr>
+    <tr><th> To Date: </th><td> <%= date_select :educational, :to %></td></tr>
+    <tr><th> Board : </th><td> <%= text_field :educational, :board %></td></tr>
+    <tr><th> Institute :</th><td><%= text_field :educational, :institute %></td></tr>
+    <tr><th> Percentage :</th><td> <%= text_field :educational, :percentage %></td></tr>
+    <tr><th></th><td> <input type="submit" value="save"/></td></tr>
+  </table>
+  <% end  %>
+</div>
+
+<p id="graduation">
+  <%#= link_to_function("Enter Details of Graduation","Element.remove('graduation'); Element.show('gratuationdata')")%>
+</p>
+<div id="gratuationdata" style="display:none;">
+  <h3>Enter Graduation Details</h3>
+    <% form_tag(:action=>"save_graduation",:method=>"get",:msg=> 'new') do  %>
+  <table>
+      <tr><th> Name :</th><td><%=collection_select :educational,:graduation_id, Graduation.all,:id,:name %></td></tr>
+      <tr><th>  Discipline:</th><td> <%=collection_select :educational,:discipline_id, Discipline.all,:id,:name %></td></tr>
+      <tr><th>From Date:</th><td><%= date_select :educational, :from %></td></tr>
+      <tr><th> To Date:</th><td> <%= date_select :educational, :to %></td></tr>
+      <tr><th>University : </th><td><%=collection_select :educational,:university_id, University.all,:id,:name %></td></tr>
+      <tr><th> Institute :</th><td>  <%= text_field :educational, :institute %></td></tr>
+      <tr><th> Percentage :</th><td> <%= text_field :educational, :percentage %></td></tr>
+      <tr><th></th><td> <input type="submit" value="save"/></td></tr>
+  </table>
+  <% end  %>
+</div>
+
+
+<p id="pg">
+  <%#= link_to_function("Enter Details of PG","Element.remove('pg'); Element.show('pgdata')")%>
+</p>
+<div id="pgdata" style="display:none;">
+  <h3>Enter PG Details</h3>
+    <% form_tag(:action=>"save_pg",:method=>"get",:msg=> 'new') do  %>
+   <table>
+      <tr><th> Name :</th><td><%=collection_select :educational,:pg_id, Pg.all,:id,:name %></td></tr>
+      <tr><th> Discipline:</th><td><%=collection_select :educational,:discipline_id, Discipline.all,:id,:name %></td></tr>
+      <tr><th>From Date:</th><td><%= date_select :educational, :from %></td></tr>
+      <tr><th>To Date:</th><td><%= date_select :educational, :to %></td></tr>
+      <tr><th> University :</th><td><%=collection_select :educational,:university_id, University.all,:id,:name %></td></tr>
+      <tr><th> Institute :</th><td><%= text_field :educational, :institute %></td></tr>
+      <tr><th> Percentage :</th><td> <%= text_field :educational, :percentage %></td></tr>
+      <tr><th></th><td> <input type="submit" value="save"/></td></tr>
+  </table>
+  <% end  %>
+</div>
+<div><center>
+     <% form_tag(:action=>"save_edu",:method=>"get",:msg=> 'new') do  %>
+  <table>
+    <tr><th>Qualification : </th><td><%=collection_select :educational,:qualification_name_id, QualificationName.all,:id,:name %></td> </tr>
+      <tr><th>Name of Degree</th><td> <%=collection_select :educational,:degree_name_id,DegreeName.all,:id,:name %></td> </tr>
+       <tr><th>Discipline</th><td><%=collection_select :educational,:discipline_id, Discipline.all,:id,:name %></td> </tr>
+       <tr><th>Institution</th><td><%= text_field :educational, :institute %></td> </tr>
+        <tr><th> University :</th><td><%=collection_select :educational,:university_id, University.all,:id,:name %></td></tr>
+       <tr><th>Duration :</th><td><%= date_select :educational, :from %> To <%= date_select :educational, :to %></td> </tr>
+       <tr><th>Percentage :</th><td><%= text_field :educational, :percentage %> </td> </tr>
+        <tr><th>Scholarships</th><td><%= text_field :educational, :schoolarship %></td> </tr>
+        <tr><th> </th><td> <input type="submit" value="save"/></td> </tr>
+  </table>
+  <% end  %>
+  </center>
+</div>
+
+</body>
+</html>
+

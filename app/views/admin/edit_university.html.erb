@@ -1,0 +1,17 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Administrator</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body><%= stylesheet_link_tag "styles_admin" %>
+  <h3>Welcome  Admin | <%= link_to "Sign Out",signout_admin_url %></h3>
+ <center><%= error_messages_for :university ,:header_message => "Invalid Entry!",:message => "Data not saved.You'll need to fix the following fields:" %></center>
+  <center><h3>Edit University</h3><br></br><br></br>
+ <% form_tag(:action=>"update_university",:method=>"get",:id=>params[:id]) do  %>
+     University : <%= text_field :university, :name %>
+   <input type="submit" value="Update"/>
+  <% end  %>
+</center>
+</body>
+</html>

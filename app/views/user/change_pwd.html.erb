@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>25</title>
+
+</head>
+<body><%= stylesheet_link_tag "styles" %>
+<hr />
+<br></br>
+<%= render :partial => "header" %>
+<div id="session">
+  <h3>Welcome  <%=session[:name]%>|<%=link_to "Sign Out",signout_user_url%></h3>
+</div><br></br>
+
+<%=@current_action %>
+<%#= controller_name %>
+<%#= link_to "Change Your Password",change_pwd_user_path %>
+<center><h3>Change Your Password</h3>
+  <center><%=   flash[:msg] %></center>
+  <div id="colM" class="w770 brd"><br></br>
+    <% form_tag(:action=>"done_pwd",:method=>"get") do  %>
+    <%#= error_messages_for :user %>
+   <table>
+     <tr><th> Old Password:</th><td><%= password_field_tag(:old) %> </td></tr>
+     <tr><th> New Password:  </th><td> <%= password_field_tag(:pnew)%></td></tr>
+     <tr><th> Conform Password</th><td>  <%=  password_field_tag(:confirm_new)  %></td></tr>
+     <tr><th></th><td><input type="submit" value="save"/></td></tr>
+</table>
+<% end %>
+  </div></center>
+
+
+</body>
+</html>

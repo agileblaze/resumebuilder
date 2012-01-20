@@ -1,0 +1,19 @@
+<% if  flash[:notice]!='' %>
+<%= flash[:notice] %>
+<% end %>
+<%= stylesheet_link_tag "styles", :media=>"screen" %>
+<% form_tag do -%>
+<p><label for="login">Login</label><br/>
+<%= text_field_tag 'login' %></p>
+
+<p><label for="password">Password</label><br/>
+<%= password_field_tag 'password' %></p>
+
+<!-- Uncomment this if you want this functionality
+<p><label for="remember_me">Remember me:</label>
+<%= check_box_tag 'remember_me' %></p>
+-->
+
+<p><%= submit_tag 'Log in' %></p>
+<% end -%><br></br>
+<%= link_to "New User",signup_account_path %>
